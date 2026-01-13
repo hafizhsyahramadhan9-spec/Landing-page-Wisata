@@ -73,7 +73,7 @@ main {
 .card {
   background-color: #f8f8f8;
   border-radius: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   max-width: 280px;
   margin: 0 auto;
@@ -83,7 +83,7 @@ main {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
 }
 
 .card img {
@@ -122,7 +122,7 @@ main {
 .home-card {
   background-color: #f8f8f8;
   border-radius: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   max-width: 280px;
   text-align: center;
@@ -131,7 +131,7 @@ main {
 
 .home-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
 }
 
 .home-card img {
@@ -174,7 +174,7 @@ main {
 body.night-mode .card {
   background-color: #2a2a2a;
   color: #f1f1f1;
-  box-shadow: 0 2px 10px rgba(255,255,255,0.15);
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.15);
 }
 
 footer {
@@ -214,7 +214,7 @@ footer {
   padding: 40px 30px;
   background-color: rgba(255, 255, 255, 0.92);
   border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   text-align: center;
   animation: fadeIn 0.6s ease;
   backdrop-filter: blur(4px);
@@ -278,8 +278,15 @@ footer {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 body.night-mode .login-container {
@@ -349,19 +356,20 @@ body.night-mode .login-container button:hover {
   cursor: pointer;
   font-weight: bold;
 }
+
 .login-btn:hover {
   background-color: #005fa3;
 }
 
 .login-container {
-   position: fixed;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 280px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   text-align: center;
   padding: 25px;
   display: none;
@@ -466,7 +474,7 @@ body.night-mode {
 #tim .card {
   background-color: #f8f8f8;
   border-radius: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   width: 100%;
   max-width: 350px;
@@ -480,7 +488,7 @@ body.night-mode {
 
 #tim .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
 #tim .card img {
@@ -554,7 +562,7 @@ body.night-mode #beranda .home-card {
 
 body.night-mode #beranda .home-card a {
   text-decoration: none;
-  color: #66b3ff !important; 
+  color: #66b3ff !important;
 }
 
 body.night-mode #beranda .home-card p {
@@ -574,7 +582,7 @@ body.night-mode #beranda .home-card img {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.4s, color 0.4s;
 }
 
@@ -614,7 +622,7 @@ body.night-mode #beranda .home-card img {
 body.night-mode #kontak {
   background-color: #2a2a2a;
   color: #f1f1f1;
-  box-shadow: 0 3px 10px rgba(255,255,255,0.1);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.1);
 }
 
 body.night-mode #kontak h2 {
@@ -654,7 +662,7 @@ body.night-mode #kontak a {
 #kontakForm input:focus,
 #kontakForm textarea:focus {
   border-color: #0078d7;
-  box-shadow: 0 0 5px rgba(0,120,215,0.3);
+  box-shadow: 0 0 5px rgba(0, 120, 215, 0.3);
   outline: none;
 }
 
@@ -689,7 +697,7 @@ body.night-mode #kontakForm textarea {
 body.night-mode #kontakForm input:focus,
 body.night-mode #kontakForm textarea:focus {
   border-color: #66b3ff;
-  box-shadow: 0 0 6px rgba(102,179,255,0.4);
+  box-shadow: 0 0 6px rgba(102, 179, 255, 0.4);
 }
 
 body.night-mode #kontakForm button {
@@ -739,10 +747,12 @@ body.night-mode #statusPesan.error {
 #beranda .home-card-container::-webkit-scrollbar {
   height: 8px;
 }
+
 #beranda .home-card-container::-webkit-scrollbar-thumb {
   background: #0078d7;
   border-radius: 10px;
 }
+
 #beranda .home-card-container::-webkit-scrollbar-track {
   background: transparent;
 }
@@ -754,6 +764,7 @@ body.night-mode #statusPesan.error {
 #beranda .home-card-container {
   scroll-snap-type: x mandatory;
 }
+
 #beranda .home-card {
   scroll-snap-align: start;
 }
@@ -828,13 +839,89 @@ body.night-mode #statusPesan.error {
   will-change: transform;
 }
 
-#beranda .home-slider {
-  overflow: hidden;
+.home-slider {
   width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 40px 0;
+}
+
+.home-card-container {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  will-change: transform;
+  align-items: stretch;
+}
+
+.home-card {
+  min-width: 280px;
+  flex-shrink: 0;
+}
+
+/* ================================
+   HOME SLIDER INFINITE
+================================ */
+
+.home-slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.home-card-container {
+  display: flex;
+  gap: 25px;
+  width: max-content;
+  will-change: transform;
+}
+
+.home-card {
+  min-width: 280px;
+  background: #f8f8f8;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+  overflow: hidden;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.home-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.home-card h3 {
+  margin: 12px 0 6px;
+  font-size: 18px;
+}
+
+.home-card p {
+  padding: 0 15px 20px;
+  font-size: 14px;
+}
+
+/* ==== FORCE FULL WIDTH SLIDER ==== */
+
+#beranda .home-slider {
+  width: 100vw;
+  overflow: hidden;
+  padding: 40px 0;
+  margin-left: calc(-50vw + 50%);
 }
 
 #beranda .home-card-container {
-  display: flex;
+  display: flex !important;
+  width: max-content !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 50px;
   gap: 25px;
   will-change: transform;
+}
+
+#beranda .home-card {
+  min-width: 280px;
+  flex-shrink: 0;
 }
