@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peta Dunia - Wisata Nusantara</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+    }
+
+    #modeBtn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #1e88e5;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+      z-index: 999;
+    }
+    #modeBtn:hover {
+      background: #1565c0;
+    }
+
+    header {
+      background-color: #1e88e5;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    nav a.active {
+      background: white;
+      color: #1e88e5;
+    }
+
+    #map {
+      height: calc(100vh - 140px);
+      width: 100%;
+    }
+
+    #errorMsg {
+      display: none;
+      background-color: #ff5555;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.95em;
+    }
+
+    footer {
+      background-color: #1e88e5;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    body.dark {
+      background: #0f172a;
+      color: white;
+    }
+    body.dark header,
+    body.dark footer {
+      background-color: #0d47a1;
+    }
+    body.dark nav a {
+      color: #cfd8dc;
+    }
+    body.dark nav a.active {
+      background: #90caf9;
+      color: #0d47a1;
+    }
+  </style>
+</head>
+<body>
+  <button id="modeBtn">🌙 Mode Malam</button>
+
+  <header>
+    <h1>Wisata Nusantara</h1>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="pantai.html">Pantai</a>
+      <a href="gunung.html">Gunung</a>
+      <a href="kota.html">Kota</a>
+      <a href="budaya.html">Budaya</a>
+      <a href="tim.html">Tim</a>
+      <a href="map.html" class="active">Map</a>
+    </nav>
+  </header>
+
+  <div id="errorMsg">⚠️ Gagal memuat peta. Periksa koneksi internet atau buka lewat Live Server.</div>
+  <div id="map"></div>
+
+  <footer>
+    <p>© 2025 Aman</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const btn = document.getElementById("modeBtn");
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      btn.textContent = document.body.classList.contains("dark")
+        ? "☀️ Mode Terang"
+        : "🌙 Mode Malam";
+    });
+
+    const map = L.map("map").setView([0, 0], 2);
+
+    const tileLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+    }).addTo(map);
+
+    let errorTimeout;
+    tileLayer.on("tileerror", () => {
+      clearTimeout(errorTimeout);
+      document.getElementById("errorMsg").style.display = "block";
+    });
+    errorTimeout = setTimeout(() => {
+      const tilesLoaded = document.querySelectorAll(".leaflet-tile").length;
+      if (tilesLoaded === 0) {
+        document.getElementById("errorMsg").style.display = "block";
+      }
+    }, 5000);
+
+    let activeMarker = null;
+
+    function onMapClick(e) {
+      const lat = e.latlng.lat.toFixed(5);
+      const lng = e.latlng.lng.toFixed(5);
+
+      if (activeMarker) {
+        map.removeLayer(activeMarker);
+      }
+
+      activeMarker = L.marker([lat, lng]).addTo(map);
+      activeMarker.bindPopup(`<b>Koordinat</b><br>${lat}, ${lng}`).openPopup();
+    }
+
+    map.on("click", onMapClick);
+  </script>
+</body>
+</html>
